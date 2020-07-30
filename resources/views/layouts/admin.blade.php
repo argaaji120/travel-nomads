@@ -11,7 +11,7 @@
 
   <title>Nomads Admin @yield('title')</title>
 
-  {{-- Style --}}
+  <!-- Style-->
   @stack('before-style')
   @include('includes.admin.style')
   @stack('after-style')
@@ -19,35 +19,24 @@
 </head>
 
 <body id="page-top">
-  <!-- Page Wrapper -->
   <div id="wrapper">
-    <!-- Sidebar -->
+
     @include('includes.admin.sidebar')
-    <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-      <!-- Main Content -->
       <div id="content">
-        <!-- Topbar -->
+
         @include('includes.admin.navbar')
-        <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
         @yield('content')
-        <!-- /.container-fluid -->
+
       </div>
-      <!-- End of Main Content -->
 
-      <!-- Footer -->
       @include('includes.admin.footer')
-      <!-- End of Footer -->
-    </div>
-    <!-- End of Content Wrapper -->
-  </div>
-  <!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
+    </div>
+  </div>
+
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
@@ -65,14 +54,17 @@
         </div>
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" type="submit">Logout</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
 
-  {{-- Script --}}
+  <!-- Script-->
   @stack('before-script')
   @include('includes.admin.script')
   @stack('after-script')
