@@ -21,9 +21,9 @@
 
   @include('includes.frontend.footer')
 
-  @stack('before-script')
+
   @include('includes.frontend.script')
-  @stack('after-script')
+
 </body>
 
 </html>

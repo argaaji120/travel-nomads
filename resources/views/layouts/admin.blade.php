@@ -12,9 +12,7 @@
   <title>Nomads Admin @yield('title')</title>
 
   <!-- Style-->
-  @stack('before-style')
   @include('includes.admin.style')
-  @stack('after-style')
 
 </head>
 
@@ -65,9 +63,7 @@
   </div>
 
   <!-- Script-->
-  @stack('before-script')
   @include('includes.admin.script')
-  @stack('after-script')
 
 </body>
 
