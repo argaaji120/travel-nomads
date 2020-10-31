@@ -17,21 +17,21 @@
       <span>Dashboard</span></a>
   </li>
 
-  <!-- Nav Item - Dashboard -->
+  <!-- Nav Item - Paket Travel -->
   <li class="nav-item{{ request()->is('admin/travel-package*') ? ' active' : '' }}">
     <a class="nav-link" href="{{ route('travel-package.index') }}">
       <i class="fas fa-fw fa-hotel"></i>
       <span>Paket Travel</span></a>
   </li>
 
-  <!-- Nav Item - Dashboard -->
-  <li class="nav-item">
-    <a class="nav-link" href="">
+  <!-- Nav Item - Galery Travel -->
+  <li class="nav-item{{ request()->is('admin/gallery*') ? ' active' : '' }}">
+    <a class="nav-link" href="{{ route('gallery.index') }}">
       <i class="fas fa-fw fa-images"></i>
       <span>Galeri Travel</span></a>
   </li>
 
-  <!-- Nav Item - Dashboard -->
+  <!-- Nav Item - Transaksi -->
   <li class="nav-item">
     <a class="nav-link" href="">
       <i class="fas fa-fw fa-hands-helping"></i>

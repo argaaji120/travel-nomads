@@ -15,21 +15,12 @@ class TravelPackage extends Model
      * @var array
      */
     protected $fillable = [
-        'title',
-        'slug',
-        'location',
-        'about',
-        'featured_event',
-        'language',
-        'foods',
-        'departure_date',
-        'duration',
-        'type',
-        'price'
+        'title', 'slug', 'location', 'about', 'featured_event',
+        'language', 'foods', 'departure_date', 'duration', 'type', 'price'
     ];
 
-    // public function galleries()
-    // {
-    //     return $this->hasMany(Gallery::class, 'travel_packages_id', 'id');
-    // }
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class, 'travel_packages_id', 'id');
+    }
 }
