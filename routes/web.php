@@ -28,6 +28,9 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 
     // Gallery Travel Packages
     Route::resource('gallery', 'GalleryController');
+
+    // Transaction
+    Route::resource('transaction', 'TransactionController');
 });
 
 Auth::routes(['verify' => true]);
