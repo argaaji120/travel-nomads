@@ -8,7 +8,7 @@ Route::get('/', 'HomeController@index')->name('home');
 /**
  *  Detail
  */
-Route::get('/detail', 'DetailController@index')->name('detail');
+Route::get('/detail/{slug}', 'DetailController@index')->name('detail');
 
 /**
  *  Checkout
