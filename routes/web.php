@@ -13,8 +13,10 @@ Route::get('/detail/{slug}', 'DetailController@index')->name('detail');
 /**
  *  Checkout
  */
-Route::get('/checkout', 'CheckoutController@index')->name('checkout');
-Route::get('/checkout/success', 'CheckoutController@success')->name('checkout.success');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+    Route::get('/checkout/success', 'CheckoutController@success')->name('checkout.success');
+});
 
 /**
  *  Admin
