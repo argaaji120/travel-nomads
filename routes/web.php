@@ -13,9 +13,16 @@ Route::get('/detail/{slug}', 'DetailController@index')->name('detail');
 /**
  *  Checkout
  */
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/checkout', 'CheckoutController@index')->name('checkout');
-    Route::get('/checkout/success', 'CheckoutController@success')->name('checkout.success');
+Route::prefix('checkout')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/{id}', 'CheckoutController@index')->name('checkout');
+
+    Route::post('/{id}', 'CheckoutController@process')->name('checkout.process');
+
+    Route::post('/create/{detail_id}', 'CheckoutController@create')->name('checkout.create');
+
+    Route::get('/remove/{detail_id}', 'CheckoutController@remove')->name('checkout.remove');
+
+    Route::get('/confirm/{id}', 'CheckoutController@success')->name('checkout.success');
 });
 
 /**
