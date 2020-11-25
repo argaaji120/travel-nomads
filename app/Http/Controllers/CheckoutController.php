@@ -11,6 +11,10 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+// Uncomment to use midtrans
+// use Midtrans\Config as MidtransConfig;
+// use Midtrans\Snap as MidtransSnap;
+
 class CheckoutController extends Controller
 {
     public function index($id)
@@ -95,6 +99,40 @@ class CheckoutController extends Controller
         $transaction->transaction_status = "PENDING";
 
         $transaction->save();
+
+        // Uncomment the code below to use midtrans
+
+        // Set Midtrans configuration
+        // MidtransConfig::$serverKey = config('midtrans.serverKey');
+        // MidtransConfig::$isProduction = config('midtrans.isProduction');
+        // MidtransConfig::$isSanitized = config('midtrans.isSanitized');
+        // MidtransConfig::$is3ds = config('midtrans.is3ds');
+
+        // Built an array to be sent to Midtrans
+        // $midtrans_params = [
+        //     'transaction_details' => [
+        //         'order_id' => 'NOMADS-' . $transaction->id,
+        //         'gross_amount' => (int) $transaction->transaction_total
+        //     ],
+        //     'customer_details' => [
+        //         'first_name' => $transaction->user->name,
+        //         'email' => $transaction->user->email
+        //     ],
+        //     'enabled_payments' => ['gopay'],
+        //     'vtweb' => []
+        // ];
+
+        // try {
+        //     // Get Snap Payment page URL
+        //     $paymentUrl = MidtransSnap::createTransaction($midtrans_params)->redirect_url;
+
+        //     // Redirect to Midtrans page
+        //     header('Location: ' . $paymentUrl);
+        // } catch (Exception $e) {
+        //     echo $e->getMessage();
+        // }
+
+        // Remove the code below when you use midtrans
 
         // Send e-ticket to users email
         Mail::to($transaction->user->email)->send(new TransactionSuccess($transaction));

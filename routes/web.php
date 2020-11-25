@@ -43,3 +43,13 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth', 'admin'])->group
 });
 
 Auth::routes(['verify' => true]);
+
+
+/**
+ *  Midtrans
+ */
+// Uncomment the code below when you use Midtrans
+// Route::post('/midtrans/callback', 'MidtransController@notificationHandler');
+// Route::get('/midtrans/finish', 'MidtransController@finishRedirect');
+// Route::get('/midtrans/unfinish', 'MidtransController@unfinishRedirect');
+// Route::get('/midtrans/error', 'MidtransController@errorRedirect');

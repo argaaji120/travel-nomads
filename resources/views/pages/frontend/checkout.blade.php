@@ -147,10 +147,21 @@
 
           <hr />
           <h2>Payment Instructions</h2>
+          <!-- Uncomment the codes below when you use midtrans -->
+          <!-- <p class="payment-instructions">
+            You will be redirected to another page to pay using Gopay.
+          </p> -->
           <p class="payment-instructions">
             Please complete your payment before to continue the wonderful trip
           </p>
           <div class="bank">
+            <!-- Uncomment the codes below when you use midtrans -->
+            <!-- <div class="bank-item pb-3">
+              <div class="description">
+                <img src="{{ asset('assets/frontend/images/gopay.png') }}" alt="" class="w-50" />
+              </div>
+              <div class="clearfix"></div>
+            </div> -->
             <div class="bank-item pb-3">
               <img src="{{ asset('assets/frontend/images/ic_bank.png') }}" alt="" class="bank-image" />
               <div class="description">
@@ -178,6 +189,10 @@
           </div>
         </div>
         <div class="join-container">
+          <!-- Uncomment the codes below when you use midtrans -->
+          <!-- <a href="{{ route('checkout.success', $transaction->id) }}" class="btn btn-block btn-join-now mt-3 py-2">
+            Process Payment
+          </a> -->
           <a href="{{ route('checkout.success', $transaction->id) }}" class="btn btn-block btn-join-now mt-3 py-2">
             I Have Made Payment
           </a>
